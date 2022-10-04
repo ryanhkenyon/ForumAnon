@@ -17,12 +17,12 @@
 /* make a thread */
 
 #threadInputField{
-    display: none;;
+    display: none;
 }
 
 #threadNameInput {
     display: inline;
-    height: 20px;
+    height: 15px;
     width: 500px;
 }
 
