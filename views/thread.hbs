@@ -1,0 +1,18 @@
+<main>
+  <div class="thread">
+    <h2>{{threadName}}</h2>
+    <div class="thread">
+      <p>{{threadContent}}</p>
+    </div>
+    <div class="comment">
+      <h3>Comments</h3>
+      {{#each comments}}
+        <div class="comment">
+          <p>
+            {{comment}}
+          </p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</main>

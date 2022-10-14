@@ -1,0 +1,105 @@
+.title {
+    border: black 1px solid;
+    margin: auto;
+    text-align: center;
+    max-width: 400px;
+}
+
+#topic {
+    justify-content: center;
+    justify-self: center;
+    margin: auto;
+    border: black 1px solid;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+/* make a thread */
+
+#threadInputField{
+    display: none;
+}
+
+#threadNameInput {
+    display: inline;
+    height: 15px;
+    width: 500px;
+}
+
+#threadPostInput {
+    height: 100px;
+    width: 500px;
+}
+
+#submitThread {
+    display: block;
+    margin-top: 10px;
+}
+
+#threads {
+    border: solid 1px;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+#thread {
+    border: solid 1px;
+    min-width: 95%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-flex;
+}
+
+#threadName {
+    color: blue;
+}
+
+#threadName:hover {
+    color: red;
+}
+
+#repliesH5 {
+    padding-left: 10px;
+}
+
+/* thread */
+
+#threadPost {
+    border: 1px solid;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* comments */
+
+#comments {
+    border: 1px solid;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+#comment {
+    border: 1px solid;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* add a comment */
+
+#commentInputField{
+    display: none;
+}
+
+#commentInput {
+    height: 100px;
+    width: 500px;
+}
+
+#submitComment {
+    display: block;
+    margin-top: 10px;
+}
