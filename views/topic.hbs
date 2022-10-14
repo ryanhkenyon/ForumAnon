@@ -17,13 +17,17 @@
     <div id="topic">
       <h2>r/InternetTechnobabble</h2>
       <button id="createPost">Create Post</button>
-      <div id="threadInputField">
+      <form action="/add/thread" id="threadInputField" method="POST">
         <h3>Thread Name:</h3>
-        <textarea id="threadNameInput" placeholder="Enter thread name here"></textarea>
+        <input
+          type="text"
+          id="threadNameInput"
+          placeholder="Enter thread name here"
+        />
         <h3>Content:</h3>
-        <textarea id="threadPostInput" placeholder="Enter content here"></textarea>
-        <button id="submitThread">Submit</button>
-      </div>
+        <input id="threadPostInput" placeholder="Enter content here" />
+        <input type="submit" id="submitThread" value="Submit" />
+      </form>
     </div>
 
     <div id="threads">
@@ -37,22 +41,7 @@
         <h4 id="repliesH5">Replies|</h4>
         <h4 id="repliesOutput">9</h4>
       </div>
-      <div id="thread">
-        <a id="threadName" href="./thread.html"
-          ><h3 id="threadNameH3">how is babby formed?</h3></a
-        >
-        <h4 id="repliesH5">Replies|</h4>
-        <h4 id="repliesOutput">6</h4>
-      </div>
-      <div id="thread">
-        <a id="threadName" href="./thread.html"
-          ><h3 id="threadNameH3">
-            does it look better when i make three fake threads?
-          </h3></a
-        >
-        <h4 id="repliesH5">Replies|</h4>
-        <h4 id="repliesOutput">0</h4>
-      </div>
+
     </div>
   </body>
 </html>

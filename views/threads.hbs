@@ -1,0 +1,17 @@
+<main>
+    <h1>Open Threads</h1>
+  {{#each threads}}
+    <div class="thread">
+      <a class="thread" href="./thread/{{_id}}"><h3 id="threadNameH3">
+          {{threadName}}
+        </h3></a>
+      <h4 id="repliesH5">Replies|</h4>
+      <h4 id="repliesOutput">{{threadReplyCount}}</h4>
+    </div>
+  {{else}}
+    <div class="thread">
+      <p class="thread">No threads available</p>
+      <a class="btn" href="/create/thread">Create a thread!</a>
+    </div>
+  {{/each}}
+</main>
