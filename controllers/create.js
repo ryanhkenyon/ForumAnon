@@ -27,12 +27,22 @@ module.exports = {
         }
     },
     comment: {
-        get: function(req,res){
-
+        get: function(req, res) {
+            res.render("createComment.hbs");
         },
-        post:function(req,res){
-            let body = req.body;
-            console.log(body);
+        
+        post: function(req, res) {
+            // let threadId = req.params;
+            // let body = req.body;
+            console.log(threadId);
+    
+            // Thread.findById(threadId).then((post) => {
+            //     post.comments.push(body.comments);
+            //     return post.save();
+            // })
+            // .then(() => {
+            //     res.redirect(`/thread/${threadId}`);
+            // });
         }
     }
 };
