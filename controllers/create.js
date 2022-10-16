@@ -1,5 +1,6 @@
 const db = require("../config/database.js");
 const Thread = require('../models/Thread');
+const Comment = require(`../models/Comment`);
 const bodyParser = require('body-parser');
 
 module.exports = {
@@ -18,8 +19,9 @@ module.exports = {
         },
         post:function(req,res){
             let body = req.body;
+            // console.log(body);
             new Thread(body).save().then((result)=>{
-                console.log(result);
+                // console.log(result);
                 res.redirect('/');
 
             });
@@ -32,9 +34,7 @@ module.exports = {
         },
         
         post: function(req, res) {
-            // let threadId = req.params;
-            // let body = req.body;
-            console.log(threadId);
+            console.log(req, res);
     
             // Thread.findById(threadId).then((post) => {
             //     post.comments.push(body.comments);
@@ -44,5 +44,5 @@ module.exports = {
             //     res.redirect(`/thread/${threadId}`);
             // });
         }
-    }
+    },
 };
