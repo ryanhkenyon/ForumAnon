@@ -3,5 +3,5 @@ module.exports = {
     error:require('./error'),
     create: require('./create'),
     thread: require('./thread'),
-    topic: require('./topic')
+    topic: require('./topic'),
 };
