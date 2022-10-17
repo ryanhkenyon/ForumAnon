@@ -1,8 +1,43 @@
-.title {
+.containerTitle {
+    border: black 1px solid;
+    margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 400px;
+    padding: 10px;
+}
+
+.containerThreads {
+    border: black 1px solid;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+}
+
+.thread {
     border: black 1px solid;
     margin: auto;
-    text-align: center;
-    max-width: 400px;
+    background-color: white;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 50%;
+}
+.comments {
+    border: black 1px solid;
+    padding: 10px;
+    margin: 10px;
+}
+
+.commentInput {
+    margin: auto;
+}
+
+.center {
+    justify-content: center;
+    justify-self: center;
+    margin: auto;
 }
 
 #topic {
