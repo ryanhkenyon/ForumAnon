@@ -25,25 +25,28 @@ module.exports = {
   },
   comment: {
     get: function (req, res) {
-       let threadId = Object.values(req.params)[0];
+       let threadId = req.params.threadId;
 
         Thread.findById(threadId).populate('comments').lean().then((thread)=>{
-             res.render('thread.hbs',thread);
+          res.render('thread.hbs',thread);
         });
       
     },
 
     post: function (req, res) {
-      let threadId = Object.values(req.params)[0];
+      let threadId = req.params.threadId;
 
       new Comment(req.body).save().then((comment)=>{
+        comment.thread = threadId;
+        return comment.save();
+      }).then((comment) => {
         Thread.findById(threadId).then(thread=>{
           thread.comments.push(comment);
-          thread.save();
+          return thread.save();
         });
-        comment.save();
-        res.redirect(`/thread/${threadId}`);
-      });
+      }).then(
+        res.redirect(`/thread/${threadId}`)
+      );
     },
   },
 };

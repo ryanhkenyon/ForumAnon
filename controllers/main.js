@@ -8,6 +8,8 @@ module.exports = function (req, res) {
       let context = {
         threads: allThreads,
       };
+
       res.render("threads.hbs", context);
     });
+
 };
