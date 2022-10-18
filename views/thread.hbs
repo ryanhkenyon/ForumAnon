@@ -22,23 +22,34 @@
   <div class="containerThreads">
 
     <div class="thread">
-    <form action="/create/comment/{{_id}}" method="POST">
-        <textArea id="comment" name="comment" placeholder="Enter response here"></textArea>
-        <input type="submit" value="Submit" />
+      <form action="/create/comment/{{_id}}" method="POST">
+          <textArea id="comment" name="comment" placeholder="Enter response here"></textArea>
+          <input type="submit" value="Submit" />
       </form>
-      </div>
-      <div class="thread">
-    <h2>{{threadName}}</h2>
-      <p>{{threadContent}}</p>
     </div>
+    
+    <div class="thread">
+      <h2>{{threadName}}</h2>
+        <p>{{threadContent}}</p>
+    </div>
+
+    
+
     <div class="comments">
       <h3>Comments</h3>
-      {{#each comments}}
-        <div class="comments">
-          <p>
-            {{comment}}
-          </p>
-        </div>
-      {{/each}}
+        {{#each comments}}
+          <div class="comments">
+            <p>{{comment}}</p>
+            <p><a href="/editComment">Edit</a> | <a href="/delete/{{_id}}">Delete</a></p>
+          </div>
+        {{/each}}
+    </div>
+
+    <div class="thread">
+      <form action="/create/comment/{{_id}}" method="POST">
+          <textArea id="comment" name="comment" placeholder="Enter response here"></textArea>
+          <input type="submit" value="Submit" />
+      </form>
+    </div>
   </div>
 </main>

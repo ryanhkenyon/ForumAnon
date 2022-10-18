@@ -9,6 +9,7 @@ module.exports = (app) => {
     app.post('/create/thread',controllers.create.thread.post); //post topic
     app.get('/create/comment/:threadId',controllers.create.comment.get); // ??? comment
     app.post('/create/comment/:threadId',controllers.create.comment.post); //post comment
+    app.get(`/delete/:commentId`, controllers.delete); //delete
     app.get('*',controllers.error); //404 page
 
 };
