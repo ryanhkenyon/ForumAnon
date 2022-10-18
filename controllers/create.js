@@ -19,35 +19,30 @@ module.exports = {
     post: function (req, res) {
       let body = req.body;
       new Thread(body).save().then((result) => {
-        console.log(result);
         res.redirect("/");
       });
-      console.log(body);
     },
   },
   comment: {
     get: function (req, res) {
        let threadId = Object.values(req.params)[0];
 
-        Thread.findById(threadId).lean().then((thread)=>{
-             console.log(thread);
-             res.render('createComment.hbs',thread);
+        Thread.findById(threadId).populate('comments').lean().then((thread)=>{
+             res.render('thread.hbs',thread);
         });
       
     },
 
     post: function (req, res) {
       let threadId = Object.values(req.params)[0];
-      let body = req.body;
 
       new Comment(req.body).save().then((comment)=>{
-        console.log(comment)
         Thread.findById(threadId).then(thread=>{
-          console.log(thread)
           thread.comments.push(comment);
           thread.save();
         });
-        return comment.save();
+        comment.save();
+        res.redirect(`/thread/${threadId}`);
       });
     },
   },
