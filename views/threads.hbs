@@ -1,12 +1,16 @@
 <main>
+  <div class="containerTitle">
     <h1>Open Threads</h1>
+  </div>
+  <div class="containerThreads">
   {{#each threads}}
     <div class="thread">
-      <a class="thread" href="./thread/{{_id}}"><h3 id="threadNameH3">
+      <a href="./thread/{{_id}}"><h3>
           {{threadName}}
         </h3></a>
       <h4 id="repliesH5">Replies|</h4>
       <h4 id="repliesOutput">{{threadReplyCount}}</h4>
+      <a class="comment" href="/create/comment/{{_id}}">Reply</a>
     </div>
   {{else}}
     <div class="thread">
@@ -14,4 +18,5 @@
       <a class="btn" href="/create/thread">Create a thread!</a>
     </div>
   {{/each}}
+  </div>
 </main>

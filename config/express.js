@@ -16,7 +16,7 @@ module.exports = (app) => {
   // app.use(bodyParser.urlencoded({ extended: true }));
   app.use(
     express.urlencoded({
-      extended: true,
+      extended: true
     })
   );
   //TODO: Setup the static files

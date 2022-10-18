@@ -5,7 +5,7 @@ module.exports = function(req,res){
     let threadId = req.params.id;
     // console.log(threadId);
 
-    Thread.findById(threadId).lean().then((thread)=>{
+    Thread.findById(threadId).populate('comments').lean().then((thread)=>{
         // console.log(thread);
         res.render('thread.hbs',thread);
     });
