@@ -2,26 +2,15 @@
   <div class="containerThreads">
 
     <div class="thread">
-<<<<<<< Updated upstream
-    <form action="/create/comment/{{_id}}" method="POST">
-        <textArea id="comment" name="comment" placeholder="Enter response here"></textArea>
-=======
       <form action="/create/comment/{{_id}}" method="POST">
         <textArea
           id="comment"
           name="comment"
           placeholder="Enter response here"
         ></textArea>
->>>>>>> Stashed changes
         <input type="submit" value="Submit" />
       </form>
-      </div>
-      <div class="thread">
-    <h2>{{threadName}}</h2>
-      <p>{{threadContent}}</p>
     </div>
-<<<<<<< Updated upstream
-=======
 
     <div class="thread">
       <h2>{{threadName}}</h2>
@@ -29,18 +18,10 @@
       <a class="btn" href="/edit/thread/{{_id}}">Edit thread!</a>
     </div>
 
->>>>>>> Stashed changes
     <div class="comments">
       <h3>Comments</h3>
       {{#each comments}}
         <div class="comments">
-<<<<<<< Updated upstream
-          <p>
-            {{comment}}
-          </p>
-        </div>
-      {{/each}}
-=======
           <p>{{comment}}</p>
           <p><a href="/edit/comment/{{_id}}">Edit</a></p>
             |
@@ -60,6 +41,5 @@
         <input type="submit" value="Submit" />
       </form>
     </div>
->>>>>>> Stashed changes
   </div>
 </main>

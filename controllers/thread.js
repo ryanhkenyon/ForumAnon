@@ -6,7 +6,6 @@ module.exports = function(req,res){
     // console.log(threadId);
 
     Thread.findById(threadId).populate('comments').lean().then((thread)=>{
-        // console.log(thread);
         res.render('thread.hbs',thread);
     });
 };
