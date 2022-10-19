@@ -10,6 +10,10 @@ module.exports = (app) => {
     app.get('/create/comment/:threadId',controllers.create.comment.get); // ??? comment
     app.post('/create/comment/:threadId',controllers.create.comment.post); //post comment
     app.get(`/delete/:commentId`, controllers.delete); //delete
+    app.get('/edit/thread/:threadId',controllers.edit.thread.get); //get edit thread page
+    app.post('/edit/thread/:threadId',controllers.edit.thread.post); //update thread
+    app.get('/edit/comment/:commentId',controllers.edit.comment.get); //get edit thread page
+    app.post('/edit/comment/:commentId',controllers.edit.comment.post); //update thread
     app.get('*',controllers.error); //404 page
 
 };

@@ -1,54 +1,44 @@
-{{!-- <main>
-  <div class="containerThreads">
-    <div class="thread">
-    <h2>{{threadName}}</h2>
-      <p>{{threadContent}}</p>
-    </div>
-    <div class="comments">
-      <h3>Comments</h3>
-      {{#each comments}}
-        <div class="comments">
-          <p>
-            {{comment}}
-          </p>
-        </div>
-      {{/each}}
-        <a href="/create/comment/{{_id}}">Reply</a>
-    </div>
-  </div>
-</main> --}}
-
 <main>
   <div class="containerThreads">
 
     <div class="thread">
       <form action="/create/comment/{{_id}}" method="POST">
-          <textArea id="comment" name="comment" placeholder="Enter response here"></textArea>
-          <input type="submit" value="Submit" />
+        <textArea
+          id="comment"
+          name="comment"
+          placeholder="Enter response here"
+        ></textArea>
+        <input type="submit" value="Submit" />
       </form>
     </div>
-    
+
     <div class="thread">
       <h2>{{threadName}}</h2>
-        <p>{{threadContent}}</p>
+      <p>{{threadContent}}</p>
+      <a class="btn" href="/edit/thread/{{_id}}">Edit thread!</a>
     </div>
-
-    
 
     <div class="comments">
       <h3>Comments</h3>
-        {{#each comments}}
-          <div class="comments">
-            <p>{{comment}}</p>
-            <p><a href="/editComment">Edit</a> | <a href="/delete/{{_id}}">Delete</a></p>
-          </div>
-        {{/each}}
+      {{#each comments}}
+        <div class="comments">
+          <p>{{comment}}</p>
+          <p><a href="/edit/comment/{{_id}}">Edit</a></p>
+            |
+            <a href="/delete/{{_id}}">Delete</a></p>
+        </div>
+  <script src="../script/editCommentForm.js"></script>
+      {{/each}}
     </div>
 
     <div class="thread">
       <form action="/create/comment/{{_id}}" method="POST">
-          <textArea id="comment" name="comment" placeholder="Enter response here"></textArea>
-          <input type="submit" value="Submit" />
+        <textArea
+          id="comment"
+          name="comment"
+          placeholder="Enter response here"
+        ></textArea>
+        <input type="submit" value="Submit" />
       </form>
     </div>
   </div>
