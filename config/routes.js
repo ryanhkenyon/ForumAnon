@@ -9,7 +9,8 @@ module.exports = (app) => {
     app.post('/create/thread',controllers.create.thread.post); //post topic
     app.get('/create/comment/:threadId',controllers.create.comment.get); // ??? comment
     app.post('/create/comment/:threadId',controllers.create.comment.post); //post comment
-    app.get(`/delete/:commentId`, controllers.delete); //delete
+    app.get('/delete/comment/:commentId', controllers.delete.comment.get); //delete comment
+    app.get('/delete/thread/:threadId', controllers.delete.thread.get); //delete thread
     app.get('/edit/thread/:threadId',controllers.edit.thread.get); //get edit thread page
     app.post('/edit/thread/:threadId',controllers.edit.thread.post); //update thread
     app.get('/edit/comment/:commentId',controllers.edit.comment.get); //get edit thread page
