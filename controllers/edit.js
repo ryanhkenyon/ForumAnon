@@ -7,8 +7,13 @@ module.exports =  {
      thread: {
         get: function(req,res){
             let threadId = req.params.threadId;
+            let loggedIn = req.loggedIn;
             Thread.findById(threadId).lean().then((thread)=>{
-                res.render('editThread.hbs', thread);
+                let context = {
+                    thread,
+                    loggedIn,
+                };
+                res.render('editThread.hbs', context);
             });
         },
         post: function(req, res) {
@@ -28,9 +33,14 @@ module.exports =  {
      comment: {
         get: function(req,res){
             let commentId = req.params.commentId;
+            let loggedIn = req.loggedIn;
             
             Comment.findById(commentId).lean().then((comment)=>{
-                res.render('editComment.hbs', comment);
+                let context = {
+                    comment,
+                    loggedIn,
+                };
+                res.render('editComment.hbs', context);
             });
         },
         post: function(req, res) {
