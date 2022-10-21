@@ -1,0 +1,21 @@
+<main>
+  <div class="containerTitle">
+    <h1>Login</h1>
+  </div>
+  {{#if error}}
+  <div class="thread" id="notifications">
+    {{error}}
+  </div>
+  {{/if}}
+  <div class="thread">
+    <form action="/user/login" method="POST">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <br />
+      <label for="password">Password</label>
+      <input type="text" name="password" id="password" />
+      <br />
+      <input type="submit" id="register" value="Register" />
+    </form>
+  </div>
+</main>

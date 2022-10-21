@@ -3,5 +3,6 @@ module.exports = {
         port: process.env.PORT || 3000
     },
     dbURL : 'mongodb://localhost:27017/forum',
-    production: {}
+    production: {},
+    jwtSecret:"password"
 };
