@@ -6,4 +6,5 @@ module.exports = {
     topic: require('./topic'),
     edit: require(`./edit`),
     delete: require(`./delete`),
+    user: require('./user')
 };

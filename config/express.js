@@ -1,10 +1,10 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
-const multer = require('multer');
+const cookieParser = require('cookie-parser');
+const {loginToken,routeValidation} =require("../controllers/middleware");
 
 module.exports = (app) => {
-  //TODO: Setup the view engine
   app.engine(
     ".hbs",
     handlebars.engine({
@@ -12,13 +12,15 @@ module.exports = (app) => {
     })
   );
   app.set("view engine", ".hbs");
-  //TODO: Setup the body parser
-  // app.use(bodyParser.urlencoded({ extended: true }));
   app.use(
     express.urlencoded({
-      extended: true
+      extended: true,
     })
   );
-  //TODO: Setup the static files
   app.use(express.static("static"));
+
+  app.use(cookieParser());
+  app.use(loginToken);
+  app.use(routeValidation);
+
 };

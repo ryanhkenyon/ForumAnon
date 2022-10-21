@@ -1,4 +1,5 @@
 const controllers = require('../controllers/index');
+const { body } = require('express-validator');
 module.exports = (app) => {
     app.get('/',controllers.main);//main page
     app.get('/topic',controllers.topic); //get topic page
@@ -15,6 +16,13 @@ module.exports = (app) => {
     app.post('/edit/thread/:threadId',controllers.edit.thread.post); //update thread
     app.get('/edit/comment/:commentId',controllers.edit.comment.get); //get edit thread page
     app.post('/edit/comment/:commentId',controllers.edit.comment.post); //update thread
+
+    app.get("/user/login",controllers.user.login.get); // get the login page
+    app.post("/user/login",controllers.user.login.post); // log user in;
+    app.get("/user/register",controllers.user.register.get); // get the register page
+    app.post("/user/register",body("username").trim().isLength({min:5}),body("password").trim().isLength({min:5}),controllers.user.register.post); // log user in;
+    app.get("/user/logout",controllers.user.logout.get); // log user out;
+
     app.get('*',controllers.error); //404 page
 
 };

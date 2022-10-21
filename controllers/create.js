@@ -14,11 +14,20 @@ module.exports = {
   },
   thread: {
     get: function (req, res) {
-      res.render("createThread.hbs");
+      let loggedIn = req.loggedIn;
+      res.render("createThread.hbs",{loggedIn});
     },
     post: function (req, res) {
       let body = req.body;
-      new Thread(body).save().then((result) => {
+      let user = req.user;
+      console.log(user)
+
+      let newThread = {
+        ...req.body,
+        creatorId:user.id
+      }
+
+      new Thread(newThread).save().then((result) => {
         res.redirect("/");
       });
     },
