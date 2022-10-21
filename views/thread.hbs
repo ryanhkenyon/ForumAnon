@@ -2,7 +2,7 @@
   <div class="containerThreads">
 
     <div class="thread">
-      <form action="/create/comment/{{_id}}" method="POST">
+      <form action="/create/comment/{{thread._id}}" method="POST">
         <textArea
           id="comment"
           name="comment"
@@ -13,27 +13,24 @@
     </div>
 
     <div class="thread">
-      <h2>{{threadName}}</h2>
-      <p>{{threadContent}}</p>
-      <a class="btn" href="/edit/thread/{{_id}}">Edit thread!</a>
-      <a class="btn" href="/delete/thread/{{_id}}">Delete thread!</a>
+      <h2>{{thread.threadName}}</h2>
+      <p>{{thread.threadContent}}</p>
+      <a class="btn" href="/edit/thread/{{thread._id}}">Edit thread!</a>
+      <a class="btn" href="/delete/thread/{{thread._id}}">Delete thread!</a>
     </div>
 
     <div class="comments">
       <h3>Comments</h3>
-      {{#each comments}}
+      {{#each thread.comments}}
         <div class="comments">
           <p>{{comment}}</p>
-          <p><a href="/edit/comment/{{_id}}">Edit</a></p>
-            |
-            <a href="/delete/comment/{{_id}}">Delete</a></p>
+          <p><a href="/edit/comment/{{_id}}">Edit</a> | <a href="/delete/comment/{{_id}}">Delete</a></p>
         </div>
-  <script src="../script/editCommentForm.js"></script>
       {{/each}}
     </div>
 
     <div class="thread">
-      <form action="/create/comment/{{_id}}" method="POST">
+      <form action="/create/comment/{{thread._id}}" method="POST">
         <textArea
           id="comment"
           name="comment"
