@@ -52,7 +52,7 @@ module.exports = {
 						});
 					} else if (req.path.startsWith('/edit/comment')||req.path.startsWith('/delete/comment')){
 						Comment.findById(id).lean().then(comment=>{
-							let matchCreator = (comment.creatorId.toString() === userId)?true:false;
+							let matchCreator = (comment.creatorId.toString() === userId) ? true:false;
 							if(matchCreator){
 								next();
 							}else{
