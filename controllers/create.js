@@ -44,8 +44,13 @@ module.exports = {
 
     post: function (req, res) {
       let threadId = req.params.threadId;
+      let user = req.user;
 
-      new Comment(req.body).save().then((comment)=>{
+      let newComment = {
+        ...req.body,
+        creatorId: user.id
+      }
+      new Comment(newComment).save().then((comment)=>{
         comment.thread = threadId;
         return comment.save();
       }).then((comment) => {

@@ -1,6 +1,7 @@
 const Thread = require("../models/Thread");
 const Comment = require("../models/Comment");
 const jwt = require("jsonwebtoken");
+const { comment } = require("./create");
 const secret = require("../config/config").jwtSecret;
 module.exports = {
 	loginToken: (req, res, next) => {
@@ -33,23 +34,32 @@ module.exports = {
 			if (req.path === "/user/login" || req.path === "/user/register") {
 				res.redirect("/");
 			} else {
-				if(req.path.startsWith("/edit/cube") ||
-                req.path.startsWith("/delete/cube")
-				||
-                req.path.startsWith("/attach/accessory")){
+				if(req.path.startsWith("/edit") ||
+                req.path.startsWith("/delete")){
 					
-					let cubeId = req.path.split("/")[3];
-					console.log(cubeId);
+					let id = req.path.split("/")[3];
+					console.log(id);
 					let userId = req.user.id;
-					Cube.findById(cubeId).lean().then(cube=>{
-						console.log(cube);
-						let matchCreator = (cube.creatorId.toString() === userId)?true:false;
-						if(matchCreator){
-							next();
-						}else{
-							res.redirect(`/details/${cubeId}`);
-						}
-					});
+					console.log(userId)
+					if(req.path.startsWith('/edit/thread')||req.path.startsWith('/delete/thread')){
+						Thread.findById(id).lean().then(thread=>{
+							let matchCreator = (thread.creatorId.toString() === userId)?true:false;
+							if(matchCreator){
+								next();
+							}else{
+								res.redirect(`/thread/${id}`);
+							}
+						});
+					} else if (req.path.startsWith('/edit/comment')||req.path.startsWith('/delete/comment')){
+						Comment.findById(id).lean().then(comment=>{
+							let matchCreator = (comment.creatorId.toString() === userId)?true:false;
+							if(matchCreator){
+								next();
+							}else{
+								res.redirect(`/thread/${comment.thread}`);
+							}
+						});
+					}
 				}else{
 					next();
 				}
