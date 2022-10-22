@@ -1,9 +1,9 @@
 <main>
     <h1>Edit Comment</h1>
     <h2>Topic Name</h2>
-    <form action="/edit/comment/{{thread._id}}" method="POST">
+    <form action="/edit/comment/{{comment._id}}" method="POST">
       <h3>Content:</h3>
-      <input id="comment" name="comment" value="{{thread.comment}}"></input>
+      <input id="comment" name="comment" value="{{comment.comment}}"></input>
       <input type="submit" value="Submit" />
     </form>
 </main>
