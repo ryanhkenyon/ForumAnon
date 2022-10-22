@@ -20,7 +20,7 @@ module.exports = {
     post: function (req, res) {
       let body = req.body;
       let user = req.user;
-      console.log(user)
+      // console.log(user);
 
       let newThread = {
         ...req.body,
@@ -43,13 +43,20 @@ module.exports = {
     },
 
     post: function (req, res) {
+      let loggedIn = req.loggedIn;
+      // console.log("Running")
+      if (!loggedIn) {
+        res.redirect(`/user/login`);
+        return;
+      }
+
       let threadId = req.params.threadId;
       let user = req.user;
 
       let newComment = {
         ...req.body,
         creatorId: user.id
-      }
+      };
       new Comment(newComment).save().then((comment)=>{
         comment.thread = threadId;
         return comment.save();
@@ -58,9 +65,8 @@ module.exports = {
           thread.comments.push(comment);
           return thread.save();
         });
-      }).then(
-        res.redirect(`/thread/${threadId}`)
-      );
+        res.redirect(`/thread/${threadId}`);
+      });
     },
   },
 };

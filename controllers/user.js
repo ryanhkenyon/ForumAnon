@@ -14,9 +14,9 @@ module.exports = {
 		post: function (req, res) {
 			let body = req.body;
 			const errors = validationResult(req);
-			console.log(body);
+			// console.log(body);
 			if(!errors.isEmpty()){
-				console.log(errors)
+				console.log(errors);
 				return res.json(errors);
 			} 
 			//#1 validation
@@ -116,7 +116,7 @@ module.exports = {
                          };
 						const options = { expiresIn: "2d" };
 						const token = jwt.sign(payload, secret, options);
-                        console.log(token);
+                        // console.log(token);
                         res.cookie("user",token);
                         res.redirect("/");
 					});

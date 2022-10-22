@@ -3,11 +3,11 @@
     <h1>Edit Thread</h1>
     </div>
     <div class="createThread">
-    <form action="/edit/thread/{{_id}}" method="POST">
+    <form action="/edit/thread/{{thread._id}}" method="POST">
         <h3>Thread Name:</h3>
-        <input id="threadName" name="threadName" type="text" value="{{threadName}}"/>
+        <input id="threadName" name="threadName" type="text" value="{{thread.threadName}}"/>
         <h3>Content:</h3>
-        <input id="threadContent" name="threadContent" value="{{threadContent}}"></input>
+        <input id="threadContent" name="threadContent" value="{{thread.threadContent}}"></input>
         <input type="submit" value="Submit" />
       </form>
     </div>
